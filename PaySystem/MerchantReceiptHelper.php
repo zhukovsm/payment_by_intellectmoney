@@ -1,5 +1,5 @@
 <?php
-namespace MerhantReceipt;
+namespace PaySystem;
 
 class MerchantReceiptHelper{
     private $common_price=0;
@@ -39,15 +39,15 @@ class MerchantReceiptHelper{
     }
     
     public function generateMerchantReceipt(){
-        $merchantReceipt = [
+        $merchantReceipt = array(
             "inn" => $this->inn,
             "group" => $this->group,
-            "content" => [
+            "content" => array(
                 "type" => "1",
                 "positions" => $this->getItems(),
                 "customerContact" => $this->customer_contact
-            ]
-        ];
+            )
+        );
         return htmlentities(json_encode($merchantReceipt), ENT_QUOTES);
     }
     

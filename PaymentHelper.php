@@ -62,26 +62,7 @@ class Order{
     private $status;
 }
 
-class Product{
-    public $price;
-    public $quantity;
-    public $title;
-    public $tax;
-    
-    public function __construct($price, $quantity, $title) {
-        $this->price = $price;
-        $this->quantity = $quantity;
-        $this->title = $title;
-    }
-}
 
-class Item extends Product{
-    private $encoding = LANG_CHARSET == "windows-1251" ? "cp1251" : "UTF-8";
-    public function __construct($base_price, $quantity, $title, $tax, $discount) {
-        $this->price = round($base_price * $discount, 2);
-        $this->quantity = $quantity;
-        $this->tax = $tax;
-        $this->title = $this->encoding != "UTF-8" ? mb_convert_encoding($title, "UTF-8", 'cp1251') : $title;
-    }
-}
+
+
 
