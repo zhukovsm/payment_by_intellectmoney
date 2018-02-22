@@ -21,7 +21,7 @@ class Order{
             $this->products = Validator::CheckIsSetProperty(__CLASS__, 'products', $products);
             $this->status = Validator::CheckIsSetProperty(__CLASS__, 'status', $status);
         } catch(Exceptions\EmptyException $e){
-            throw new Exception('Can not create instance of Order');
+            throw new Exception('Can not create instance of Order!');
         }
     }
     
