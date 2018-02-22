@@ -1,15 +1,15 @@
 <?php
 namespace PaySystem;
 use Exception;
-trait Validator{
-    public function CheckIsSetProperty($className, $name, $value){
+use PaySystem\Exceptions as Exceptions;
+class Validator{
+    public static function CheckIsSetProperty($className, $name, $value){
         if (!property_exists($className, $name)){
-            throw new Exception('Property - "'.$name.'" not found');
+            throw new Exceptions\EmptyException('Property - "'.$name.'" not found');
         }
-        if (isset($value)){
-            $this->$name = $value;
-        } else {
-            throw new Exception('Value of property -"'.$name.'" cann`t be empty');
+        if (!isset($value)){
+            throw new Exceptions\EmptyException('Value of property -"'.$name.'" cann`t be empty');
         }
+        return $value;
     }
 }
