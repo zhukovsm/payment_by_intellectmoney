@@ -42,7 +42,6 @@
             {
               if(Autoloader::debug) Autoloader::StPutFile(('подключили ' .$filepath ));
               $flag = FALSE;
-              print_r($fiepath); echo '<br>';
               require_once($filepath);
               break;
             }

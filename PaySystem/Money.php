@@ -1,10 +1,25 @@
 <?php
 namespace PaySystem;
-class Item extends Product{
-    public $tax;
-    public function __construct($base_price, $quantity, $title, $tax, $discount) {
-        $price = round($base_price * $discount, 2);
-        parent::__construct($price, $quantity, $title);
-        $this->tax = $tax;
+class Money {
+    private $amount;
+
+    public function __construct($amount) {
+        $this->setAmount($amount);
+    }
+
+    public function setAmount($amount){
+        $this->amount = $amount;
+    }
+
+    public function getAmount(){
+        return $amount;
+    }
+
+    public function getTestCurrency(){
+        return 'TST';
+    }
+
+    public function getRealCurrency(){
+        return 'RUB';
     }
 }
