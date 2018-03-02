@@ -7,10 +7,14 @@ use PaySystem\Exceptions as Exceptions;
 use PaySystem\PaymentHelper as PaymentHelper;
 use PaySystem\PaySystemSettings as PaySystemSettings;
 try{
-    $order = new ord(12, 2342, 24243, null, 333, array('sum' => 3));
+    $order = Ord::createInstance(12, 2342, 24243, 34, 333, array('sum' => 3));
+    $order2 = Ord::createInstance(25, 2342, 24243, 23, 333, array('sum' => 3));
     $ps_settings = new PaySystemSettings();
     $payment = new PaymentHelper($order, $ps_settings);
-    print_r($order);
+    //Ord::getInstance()->id = 5;
+    Ord::getInstance()->setMoney(100);
+    Ord::getInstance()->money = 25;
+    print_r(Ord::getInstance()->money->getTestCurrency());
 } catch(Exception $e){
     echo $e->getMessage();
 }
